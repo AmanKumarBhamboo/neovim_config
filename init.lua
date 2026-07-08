@@ -1,16 +1,36 @@
-require("aman.core.options")
-require("aman.core.keymaps")
-require("aman.core.colorscheme")
-require("aman.plugins-setup")
-pcall(require, "aman.plugins.neo-tree")
-pcall(require, "aman.plugins.telescope")
-pcall(require, "aman.plugins.lsp")
-pcall(require, "aman.plugins.treesitter")
-pcall(require, "aman.plugins.lualine")
-pcall(require, "aman.plugins.gitsigns")
-pcall(require, "aman.plugins.indent-blankline")
-pcall(require, "aman.plugins.which-key")
-pcall(require, "aman.plugins.toggleterm")
-pcall(require, "aman.plugins.conform")
-pcall(require, "aman.plugins.dadbod")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.uv.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
+require("config.options")
+require("config.keymaps")
+
+require("lazy").setup({
+  spec = {
+    { import = "plugins" },
+  },
+  defaults = {
+    lazy = false,
+    version = false,
+  },
+  install = {
+    colorscheme = { "nightfly" },
+  },
+  checker = {
+    enabled = true,
+  },
+  change_detection = {
+    notify = false,
+  },
+})
+
+pcall(vim.cmd, "colorscheme nightfly")

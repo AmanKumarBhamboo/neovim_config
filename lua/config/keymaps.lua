@@ -13,7 +13,7 @@ local keymap = vim.keymap
 keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- save file
-keymap.set("n", "<leader>w", "<cmd>w<CR>")
+keymap.set("n", "<leader>ww", "<cmd>w<CR>")
 
 -- quit file
 keymap.set("n", "<leader>q", "<cmd>q<CR>")
@@ -31,6 +31,31 @@ keymap.set("n", "<C-h>", "<C-w>h")
 keymap.set("n", "<C-j>", "<C-w>j")
 keymap.set("n", "<C-k>", "<C-w>k")
 keymap.set("n", "<C-l>", "<C-w>l")
+
+-- resize windows
+keymap.set("n", "<leader>wh", "<C-w><")
+keymap.set("n", "<leader>wl", "<C-w>>")
+keymap.set("n", "<leader>wj", "<C-w>-")
+keymap.set("n", "<leader>wk", "<C-w>+")
+
+-- navigate windows from terminal mode
+keymap.set("t", "<Esc>", "<C-\\><C-N>")
+keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h")
+keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j")
+keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k")
+keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l")
+
+-- resize windows from terminal mode
+keymap.set("t", "<leader>wh", "<C-\\><C-N><C-w><")
+keymap.set("t", "<leader>wl", "<C-\\><C-N><C-w>>")
+keymap.set("t", "<leader>wj", "<C-\\><C-N><C-w>-")
+keymap.set("t", "<leader>wk", "<C-\\><C-N><C-w>+")
+
+-- open a new terminal
+keymap.set("n", "<leader>tt", function()
+  local Terminal = require("toggleterm.terminal").Terminal
+  Terminal:new({ direction = "horizontal" }):toggle()
+end, { desc = "New terminal" })
 
 -- ==========================================
 -- Buffer Navigation

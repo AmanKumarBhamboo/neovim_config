@@ -6,7 +6,7 @@ Personal Neovim setup with LSP, autocompletion, fuzzy finder, file explorer, ter
 
 | Plugin | Purpose |
 |---|---|
-| [packer.nvim](https://github.com/wbthomason/packer.nvim) | Package manager |
+| [lazy.nvim](https://github.com/folke/lazy.nvim) | Package manager |
 | [vim-nightfly-guicolors](https://github.com/bluz71/vim-nightfly-guicolors) | Dark colorscheme |
 | [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | File explorer |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder |
@@ -19,7 +19,7 @@ Personal Neovim setup with LSP, autocompletion, fuzzy finder, file explorer, ter
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git gutter |
 | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | Indent guides |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Keybinding popup |
-| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Floating terminal |
+| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Terminal |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Auto-formatting |
 | [vim-dadbod](https://github.com/tpope/vim-dadbod) | Database client |
 | [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui) | Database browser UI |
@@ -31,7 +31,7 @@ Personal Neovim setup with LSP, autocompletion, fuzzy finder, file explorer, ter
 | Key | Action |
 |---|---|
 | `<Esc>` | Clear search highlight |
-| `<leader>w` | Save file |
+| `<leader>ww` | Save file |
 | `<leader>q` | Quit file |
 
 ### Window Management
@@ -41,10 +41,14 @@ Personal Neovim setup with LSP, autocompletion, fuzzy finder, file explorer, ter
 | `<leader>sh` | Horizontal split |
 | `<leader>se` | Equalize splits |
 | `<leader>sx` | Close current split |
-| `<C-h>` | Move to left window |
-| `<C-j>` | Move to bottom window |
-| `<C-k>` | Move to top window |
-| `<C-l>` | Move to right window |
+| `<C-h>` | Move left |
+| `<C-j>` | Move down |
+| `<C-k>` | Move up |
+| `<C-l>` | Move right |
+| `<leader>wh` | Decrease width |
+| `<leader>wl` | Increase width |
+| `<leader>wj` | Decrease height |
+| `<leader>wk` | Increase height |
 
 ### Buffer Navigation
 | Key | Action |
@@ -84,7 +88,10 @@ Personal Neovim setup with LSP, autocompletion, fuzzy finder, file explorer, ter
 ### Terminal
 | Key | Action |
 |---|---|
-| `<C-t>` | Toggle terminal |
+| `<C-t>` | Toggle primary terminal |
+| `<leader>tt` | Open a new terminal |
+| `<Esc>` | Exit terminal mode → normal mode |
+| `<leader>wh/j/k/l` | Resize from terminal mode |
 
 ### Database
 | Key | Action |
