@@ -21,6 +21,9 @@ Personal Neovim setup with LSP, autocompletion, fuzzy finder, file explorer, ter
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Keybinding popup |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Floating terminal |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Auto-formatting |
+| [vim-dadbod](https://github.com/tpope/vim-dadbod) | Database client |
+| [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui) | Database browser UI |
+| [vim-dadbod-completion](https://github.com/kristijanhusak/vim-dadbod-completion) | Database completions |
 
 ## Keymaps
 
@@ -83,6 +86,12 @@ Personal Neovim setup with LSP, autocompletion, fuzzy finder, file explorer, ter
 |---|---|
 | `<C-t>` | Toggle terminal |
 
+### Database
+| Key | Action |
+|---|---|
+| `:DB` | Run SQL query |
+| `:DBUI` | Open database browser |
+
 ### Visual Mode
 | Key | Action |
 |---|---|
@@ -95,7 +104,7 @@ Personal Neovim setup with LSP, autocompletion, fuzzy finder, file explorer, ter
 Auto-installed: `lua_ls`, `pyright`, `ts_ls`, `sqls`
 
 ## Treesitter Parsers
-Installed: lua, python, javascript, typescript, c, cpp, rust, go, sql
+Installed: lua, python, javascript, typescript, c, cpp, rust, sql
 
 ## Auto-formatting (conform.nvim)
 Formats on save:

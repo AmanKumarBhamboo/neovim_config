@@ -7,7 +7,6 @@ require("conform").setup({
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
     rust = { "rustfmt" },
-    go = { "gofmt" },
     c = { "clang-format" },
     cpp = { "clang-format" },
     sql = { "pg_format" },

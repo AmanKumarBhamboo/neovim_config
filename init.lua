@@ -12,4 +12,5 @@ pcall(require, "aman.plugins.indent-blankline")
 pcall(require, "aman.plugins.which-key")
 pcall(require, "aman.plugins.toggleterm")
 pcall(require, "aman.plugins.conform")
+pcall(require, "aman.plugins.dadbod")
 

@@ -3,7 +3,7 @@ local keymap = vim.keymap
 -- Mason: auto-install LSP servers
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "pyright", "ts_ls" },
+  ensure_installed = { "lua_ls", "pyright", "ts_ls", "sqls" },
 })
 
 -- Override Lua LS config for Neovim runtime
@@ -57,5 +57,6 @@ cmp.setup({
   }, {
     { name = "buffer" },
     { name = "path" },
+    { name = "vim-dadbod-completion" },
   }),
 })

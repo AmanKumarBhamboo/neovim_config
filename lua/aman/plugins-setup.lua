@@ -88,6 +88,11 @@ return packer.startup(function(use)
   -- conform: auto-formatting
   use "stevearc/conform.nvim"
 
+  -- database client
+  use "tpope/vim-dadbod"
+  use "kristijanhusak/vim-dadbod-ui"
+  use "kristijanhusak/vim-dadbod-completion"
+
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     packer.sync()
