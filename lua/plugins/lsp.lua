@@ -11,7 +11,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "ts_ls", "sqls" },
+        ensure_installed = { "lua_ls", "pyright", "ts_ls", "sqls", "rust_analyzer" },
       })
     end,
   },
@@ -21,7 +21,7 @@ return {
     config = function()
       local keymap = vim.keymap
 
-      vim.lsp.config.lua_ls = vim.tbl_deep_extend("force", vim.lsp.config.lua_ls or {}, {
+      vim.lsp.config.lua_ls = {
         settings = {
           Lua = {
             runtime = { version = "LuaJIT" },
@@ -31,7 +31,49 @@ return {
             },
           },
         },
-      })
+      }
+
+      vim.lsp.config.rust_analyzer = {
+        autostart = false,
+        settings = {
+          rust_analyzer = {
+            checkOnSave = { command = "clippy" },
+          },
+        },
+      }
+
+      for _, server in ipairs({ "pyright", "ts_ls", "sqls" }) do
+        vim.lsp.config[server] = { autostart = false }
+      end
+
+      local enabled_servers = { lua_ls = true }
+
+      local server_commands = {
+        RustLsp = "rust_analyzer",
+        SqlsLsp = "sqls",
+        TsLsp = "ts_ls",
+        PyLsp = "pyright",
+      }
+
+      for cmd, server in pairs(server_commands) do
+        vim.api.nvim_create_user_command(cmd, function()
+          if not enabled_servers[server] then
+            vim.lsp.enable(server)
+            enabled_servers[server] = true
+            vim.notify(server .. " enabled", vim.log.levels.INFO)
+          else
+            vim.notify(server .. " is already enabled", vim.log.levels.WARN)
+          end
+        end, {})
+      end
+
+      vim.api.nvim_create_user_command("LspStatus", function()
+        local status = {}
+        for cmd_name, server in pairs(server_commands) do
+          table.insert(status, server .. ": " .. (enabled_servers[server] and "ON" or "OFF"))
+        end
+        vim.notify(table.concat(status, "\n"), vim.log.levels.INFO)
+      end, {})
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)

@@ -35,3 +35,31 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+
+opt.timeoutlen = 500
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+  callback = function()
+    vim.opt.timeoutlen = 0
+  end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    vim.opt.timeoutlen = 500
+  end,
+})
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "*:t",
+  callback = function()
+    vim.opt.timeoutlen = 0
+  end,
+})
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "t:*",
+  callback = function()
+    vim.opt.timeoutlen = 500
+  end,
+})
