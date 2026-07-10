@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("config.options")
 require("config.keymaps")
+require("config.quote-widget")
 
 require("lazy").setup({
   spec = {
@@ -26,7 +27,7 @@ require("lazy").setup({
     colorscheme = { "nightfly" },
   },
   checker = {
-    enabled = true,
+    enabled = false,
   },
   change_detection = {
     notify = false,
