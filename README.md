@@ -108,7 +108,15 @@ Personal Neovim setup with LSP, autocompletion, fuzzy finder, file explorer, ter
 | `<leader>d` | Delete without yanking |
 
 ## LSP Servers (Mason)
-Auto-installed: `lua_ls`, `pyright`, `ts_ls`, `sqls`
+Auto-installed: `lua_ls`, `pyright`, `ts_ls`, `sqls`, `rust_analyzer`
+
+### LSP Commands
+- `lua_ls` — enabled by default
+- `:RustLsp` — enable rust-analyzer
+- `:SqlsLsp` — enable sqls
+- `:TsLsp` — enable ts_ls
+- `:PyLsp` — enable pyright
+- `:LspStatus` — show which servers are enabled
 
 ## Treesitter Parsers
 Installed: lua, python, javascript, typescript, c, cpp, rust, sql
