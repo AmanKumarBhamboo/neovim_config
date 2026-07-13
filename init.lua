@@ -24,7 +24,7 @@ require("lazy").setup({
     version = false,
   },
   install = {
-    colorscheme = { "nightfly" },
+    colorscheme = { "catppuccin" },
   },
   checker = {
     enabled = false,
@@ -34,4 +34,4 @@ require("lazy").setup({
   },
 })
 
-pcall(vim.cmd, "colorscheme nightfly")
+-- colorscheme is now handled inside the catppuccin plugin spec

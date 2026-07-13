@@ -85,4 +85,10 @@ keymap.set("v", "p", '"_dP')
 -- ==========================================
 keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
+-- ==========================================
+-- Markdown Preview
+-- ==========================================
+keymap.set("n", "<leader>mp", "<cmd>PeekOpen<CR>", { desc = "Markdown preview" })
+keymap.set("n", "<leader>mc", "<cmd>PeekClose<CR>", { desc = "Close markdown preview" })
+
 

@@ -85,7 +85,7 @@ return {
           keymap.set("n", "gr", vim.lsp.buf.references, opts)
           keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
           keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-          keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+          keymap.set("n", "<leader>df", vim.diagnostic.open_float, opts)
         end,
       })
     end,
