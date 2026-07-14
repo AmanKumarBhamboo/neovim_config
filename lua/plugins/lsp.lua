@@ -11,7 +11,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "ts_ls", "sqls", "rust_analyzer" },
+        ensure_installed = { "lua_ls", "pyright", "ts_ls", "sqls", "rust_analyzer", "dockerls" },
       })
     end,
   },
@@ -42,7 +42,7 @@ return {
         },
       }
 
-      for _, server in ipairs({ "pyright", "ts_ls", "sqls" }) do
+      for _, server in ipairs({ "pyright", "ts_ls", "sqls", "dockerls" }) do
         vim.lsp.config[server] = { autostart = false }
       end
 
@@ -53,6 +53,7 @@ return {
         SqlsLsp = "sqls",
         TsLsp = "ts_ls",
         PyLsp = "pyright",
+        DockerLsp = "dockerls",
       }
 
       for cmd, server in pairs(server_commands) do
